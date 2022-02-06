@@ -7,17 +7,25 @@ function soma(a: number, b: number) {
 interface IAnimal {
   nome: string
   tipo: 'terrestre' | 'aquático'
-  executarRugido(volumeEmDecibeis: number): void
+  domestico: boolean
 }
 
 interface IFelino extends IAnimal {
   visaoNoturna: boolean
 }
 
-const animal: IAnimal = {
-  nome: 'Elefante',
+interface ICanino extends IAnimal {
+  porte: 'pequeno' | 'medio' | 'grande'
+}
+
+// Types - merge de interfaces
+type IDomestico = IFelino | ICanino
+
+const animal: IDomestico = {
+  domestico: true,
+  nome: 'cachorro',
+  porte: 'medio',
   tipo: 'terrestre',
-  executarRugido: (volumeEmDecibeis) => `${volumeEmDecibeis}dB`,
 }
 
 // animal.executarRugido('a') //vai dar erro pelo type
@@ -25,6 +33,6 @@ const animal: IAnimal = {
 const felino: IFelino = {
   nome: 'Leão',
   tipo: 'terrestre',
+  domestico: false,
   visaoNoturna: true,
-  executarRugido: (volumeEmDecibeis) => `${volumeEmDecibeis}`,
 }
