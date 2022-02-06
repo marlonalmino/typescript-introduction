@@ -37,10 +37,17 @@ const felino: IFelino = {
   visaoNoturna: true,
 }
 
-//TO HTML
+// TO HTML
 const input = document.querySelector('#input') as HTMLInputElement
 
 input.addEventListener('input', (event) => {
   const i = event.currentTarget as HTMLInputElement
   console.log(i.value)
 })
+
+// Generic Types
+function adicionaApendiceALista<T>(array: T[], valor: T) {
+  return array.map(() => valor)
+}
+
+adicionaApendiceALista([1, 2, 3], 2)
