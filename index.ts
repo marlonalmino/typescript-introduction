@@ -36,3 +36,11 @@ const felino: IFelino = {
   domestico: false,
   visaoNoturna: true,
 }
+
+//TO HTML
+const input = document.querySelector('#input') as HTMLInputElement
+
+input.addEventListener('input', (event) => {
+  const i = event.currentTarget as HTMLInputElement
+  console.log(i.value)
+})
