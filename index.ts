@@ -65,3 +65,29 @@ function redirecione(usuario: IUsuario) {
 
   // redirecionar para a área do usuário
 }
+
+interface Cachorro {
+  nome: string
+  idade: number
+  parqueFavorito?: string
+}
+
+type CachorroSomenteLeitura = {
+  +readonly [K in keyof Cachorro]-?: Cachorro[K]
+}
+
+class MeuCachorro implements Cachorro {
+  nome
+  idade
+  parqueFavorito
+
+  constructor(nome: string, idade: number) {
+    this.nome = nome
+    this.idade = idade
+  }
+}
+
+const cao = new MeuCachorro('Nick', 3)
+cao.idade = 10
+
+console.log(cao)
