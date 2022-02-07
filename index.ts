@@ -66,6 +66,7 @@ function redirecione(usuario: IUsuario) {
   // redirecionar para a área do usuário
 }
 
+// Variáveis com readonly
 interface Cachorro {
   nome: string
   idade: number
@@ -91,3 +92,17 @@ const cao = new MeuCachorro('Nick', 3)
 cao.idade = 10
 
 console.log(cao)
+
+// Omit
+interface Pessoa {
+  nome: string
+  idade: number
+  nacionalidade: string
+}
+
+interface Brasileiro extends Omit<Pessoa, 'nacionalidade'> {}
+
+const brasileiro: Brasileiro = {
+  nome: 'Marlon',
+  idade: 22,
+}
